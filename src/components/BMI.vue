@@ -1,6 +1,6 @@
 <template>
   <div class="container h-screen flex items-center justify-center">
-    <div class="inner rounded-lg bg-teal-500  relative" style="width: 350px;">
+    <div class="inner rounded-lg bg-teal-500 relative" style="width: 350px;">
       <div class="B-container">
         <span class="">B</span>
       </div>
@@ -29,6 +29,7 @@
 <script>
   export default {
     data() {
+      // 定義所需變量
       return {
         weight: '',
         height: '',
@@ -38,8 +39,11 @@
     },
     methods: {
       calculateBMI() {
+        // 計算 BMI
         let bmi = this.weight / (this.height / 100 * this.height / 100)
         this.bmi = bmi.toFixed(2);
+
+        // 判斷 BMI 狀態並賦值給 bmiStatus
         if (bmi < 18.5) {
           this.bmiStatus = "體重過輕";
         } else if (bmi >= 18.5 && bmi < 24) {
@@ -76,8 +80,6 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    /* 新增的屬性 */
-
   }
 
   .inner:hover {
@@ -85,7 +87,6 @@
     background: #00B6FF;
     overflow: hidden;
   }
-
 
   .B-container {
     position: absolute;
@@ -106,45 +107,8 @@
     color: rgba(255, 255, 255, 0);
   }
 
-  .inner:hover span {
-    color: rgba(255, 255, 255, 0);
-  }
-
-  .inner h1 {
-    color: white;
-    margin: 0;
-  }
-
-
   .inner p {
     color: white;
     font-size: .8rem;
-  }
-
-  .B-wrap {
-    display: flex;
-    position: relative;
-    height: 63px;
-    justify-content: end;
-  }
-
-  .B-wrap>span {
-
-    color: white;
-    font-weight: bold;
-    transition: color .5s;
-
-    left: 21px;
-    top: 18px;
-    width: 63px;
-
-    display: block;
-    height: 63px;
-
-    position: relative;
-  }
-
-  .content-padding {
-    height: 63px;
   }
 </style>
